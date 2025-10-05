@@ -11,7 +11,6 @@ WHERE status = 'ativo';
 -- =========================================
 -- 2. Calcular idade dos clientes
 -- Pergunta: Qual a idade atual de cada cliente?
--- (Atributo derivado a partir da data de nascimento)
 -- =========================================
 SELECT 
     nome,
@@ -24,7 +23,6 @@ ORDER BY idade DESC;
 -- =========================================
 -- 3. Contas com saldo acima da média
 -- Pergunta: Quais clientes possuem saldo maior que a média geral?
--- (Uso de subquery + HAVING)
 -- =========================================
 SELECT c.id_conta, cli.nome, c.saldo_atual
 FROM Conta c
@@ -35,7 +33,6 @@ ORDER BY c.saldo_atual DESC;
 -- =========================================
 -- 4. Top clientes por movimentação
 -- Pergunta: Quais clientes mais enviaram dinheiro em transações?
--- (Soma de valores agrupados por cliente)
 -- =========================================
 SELECT cli.nome, SUM(t.valor) AS total_enviado
 FROM Transacao t
