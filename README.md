@@ -61,7 +61,7 @@ Abaixo estão os espaços reservados para as capturas de tela de cada aba do das
 > <img width="1282" height="721" alt="Image" src="https://github.com/user-attachments/assets/5906f9e6-b914-4db4-9418-80d7bf9786ee" />
 
 #### 📈 Investimento
-> <img width="1280" height="718" alt="Image" src="https://github.com/user-attachments/assets/f4e2838a-dfda-41db-9051-63e8541ab89b" />
+> <img width="1287" height="722" alt="Image" src="https://github.com/user-attachments/assets/199528d3-b696-4030-81f0-c18ed1a80a23" />
 
 #### 💵 Empréstimo
 > <img width="1285" height="717" alt="Image" src="https://github.com/user-attachments/assets/16a8878a-e08c-466b-85b5-9033f3b9a0c3" />
