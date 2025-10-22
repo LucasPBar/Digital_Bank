@@ -1,4 +1,4 @@
-# 💳 Digital Bank — Análise de Dados em um Banco Digital
+# 🏦 Digital Bank — Análise de Dados em um Banco Digital
 <img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/2fe14533-45fc-4554-b5e9-b82322828578" />
 
 Este projeto simula o ambiente de um banco digital e foi desenvolvido para aplicar conceitos de modelagem e análise de dados em um contexto realista do setor financeiro.  
