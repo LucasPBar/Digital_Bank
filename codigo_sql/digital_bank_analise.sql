@@ -28,7 +28,8 @@ SELECT c.id_conta, cli.nome, c.saldo_atual
 FROM Conta c
 JOIN Cliente cli ON c.id_cliente = cli.id_cliente
 WHERE c.saldo_atual > (SELECT AVG(saldo_atual) FROM Conta)
-ORDER BY c.saldo_atual DESC;
+ORDER BY c.saldo_atual DESC
+LIMIT 10;
 
 -- =========================================
 -- 4. Top clientes por movimentação
@@ -40,16 +41,25 @@ JOIN Conta c ON t.id_conta_origem = c.id_conta
 JOIN Cliente cli ON c.id_cliente = cli.id_cliente
 GROUP BY cli.nome
 HAVING SUM(t.valor) > 300 -- exemplo: apenas quem movimentou mais de 300
-ORDER BY total_enviado DESC;
+ORDER BY total_enviado DESC
+LIMIT 10;
 
 -- =========================================
 -- 5. Clientes inadimplentes em empréstimos
 -- Pergunta: Quem são os clientes com empréstimos em status 'inadimplente'?
 -- =========================================
-SELECT cli.nome, e.valor_emprestimo, e.quantidade_parcelas, e.status
+SELECT 
+    cli.nome,
+    SUM(e.valor_emprestimo) AS total_emprestimos_inadimplentes,
+    COUNT(*) AS quantidade_emprestimos,
+    rc.score_credito,
+    e.status
 FROM Emprestimo e
 JOIN Cliente cli ON e.id_cliente = cli.id_cliente
-WHERE e.status = 'inadimplente';
+JOIN Risco_Cliente rc ON cli.id_cliente = rc.id_cliente
+WHERE e.status = 'inadimplente'
+GROUP BY cli.nome, rc.score_credito, e.status;
+
 
 -- =========================================
 -- 6. Clientes com faturas atrasadas
@@ -72,13 +82,13 @@ ORDER BY total_receita DESC;
 
 -- =========================================
 -- 8. Clientes com melhor score de crédito
--- Pergunta: Quais são os top 5 clientes com melhor score?
+-- Pergunta: Quais são os top 10 clientes com melhor score?
 -- =========================================
 SELECT cli.nome, r.score_credito
 FROM Risco_Cliente r
 JOIN Cliente cli ON r.id_cliente = cli.id_cliente
 ORDER BY r.score_credito DESC
-LIMIT 5;
+LIMIT 10;
 
 -- =========================================
 -- 9. Investimentos ativos por cliente
